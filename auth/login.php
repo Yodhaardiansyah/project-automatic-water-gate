@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "koneksi.php"; // Koneksi ke database
+include "../config/koneksi.php"; // Koneksi ke database
 
 $error = "";
 
@@ -23,7 +23,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user && password_verify($password, $user["password"])) {
         $_SESSION["username"] = $user["username"];
         $_SESSION["role"] = $user["role"];
-        header("Location: index.php"); // Redirect ke halaman utama setelah login
+        header("Location: ../index.php"); // Redirect ke halaman utama setelah login
         exit();
     } else {
         $error = "Username atau password salah!";

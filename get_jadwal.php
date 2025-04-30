@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "config/koneksi.php";
 
 // Query untuk mengambil data jadwal
 $sql = "SELECT id, waktu_buka, waktu_tutup FROM jadwal ORDER BY waktu_buka DESC";

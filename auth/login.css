@@ -14,7 +14,7 @@ body {
       rgba(0, 0, 0, 0.5) 50%,
       rgba(0, 0, 0, 0.5) 50%
     ),
-    url(images/city.jpg) no-repeat center center fixed;
+    url(../images/city.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 .box {

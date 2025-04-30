@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoring Irigasi IoT</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+<?php
+include 'header.php';
+?>
 
     <h1>Monitoring Irigasi IoT</h1>
 
@@ -105,5 +98,6 @@
     });
     </script>
 
-</body>
-</html>
+<?php
+include 'footer.php';
+?>

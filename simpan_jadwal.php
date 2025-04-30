@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "config/koneksi.php";
 
 if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     $waktu_buka = trim($_POST["waktu_buka"]);

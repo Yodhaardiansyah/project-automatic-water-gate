@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "config/koneksi.php";
 
 // Ambil data status pintu air beserta sumber perubahan
 $sql_pintu = "SELECT status, sumber_perubahan FROM pintu_air ORDER BY updated_at DESC LIMIT 1";
