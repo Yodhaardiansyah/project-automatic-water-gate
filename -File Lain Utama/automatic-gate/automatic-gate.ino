@@ -53,15 +53,18 @@ void setup() {
 void loop() {
     String status = getStatusJadwal();
 
-    if (status == "Terbuka") {
-        if (!gateOpen) openGate(0); // Buka sesuai jadwal, bukan sensor
-    } else {
-        float waterLevel = getWaterLevel();
-        if (waterLevel == -1) {
-            delay(2000);
-            return;
-        }
+    float waterLevel = getWaterLevel();
+    if (waterLevel == -1) {
+        delay(2000);
+        return;
+    }
 
+    // Kirim data real-time ke server setiap loop
+    sendDataToServer(waterLevel, gateOpen ? "Terbuka" : "Tertutup");
+
+    if (status == "Terbuka") {
+        if (!gateOpen) openGate(waterLevel); // Buka berdasarkan jadwal
+    } else {
         if (waterLevel <= MAX_DISTANCE && !gateOpen) {
             openGate(waterLevel);
         } else if (waterLevel >= NORMAL_DISTANCE && gateOpen) {
@@ -71,6 +74,7 @@ void loop() {
 
     delay(3000);
 }
+
 
 // ======================= FUNGSI ========================
 
