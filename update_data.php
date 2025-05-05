@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (mysqli_num_rows($result_jadwal) > 0) {
         // Jika waktu sekarang sesuai jadwal, buka pintu air
-        $status_otomatis = "Terbuka";
+        $status_otomatis = "Tertutup";
         $sumber_perubahan_otomatis = "Jadwal";
     } else {
         // Jika tidak ada jadwal, cek sensor air
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $status_otomatis = "Terbuka";
             $sumber_perubahan_otomatis = "Sensor";
         } else {
-            $status_otomatis = "Tertutup";
+            $status_otomatis = "Terbuka";
             $sumber_perubahan_otomatis = "Sensor";
         }
     }

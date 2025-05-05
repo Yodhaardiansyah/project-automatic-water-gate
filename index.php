@@ -49,7 +49,7 @@ include 'header.php';
                 // Perbarui status pintu air dan ketinggian air
                 $("#status").text(data.status_pintu || "Tidak diketahui");
                 $("#sumber_perubahan").text("Sumber: " + (data.sumber_perubahan || "Tidak ada data"));
-                $("#ketinggian").text((data.ketinggian_air || "0") + " cm");
+                $("#ketinggian").text(((75 - (data.ketinggian_air || 0)).toFixed(2)) + " cm");
 
                 // Perbarui tabel riwayat jadwal
                 var tableBody = "";

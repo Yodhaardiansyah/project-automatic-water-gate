@@ -60,9 +60,9 @@ void loop() {
     }
 
     // Kirim data real-time ke server setiap loop
-    sendDataToServer(waterLevel, gateOpen ? "Terbuka" : "Tertutup");
+    sendDataToServer(waterLevel, gateOpen ? "Tertutup" : "Terbuka");
 
-    if (status == "Terbuka") {
+    if (status == "Tertutup") {
         if (!gateOpen) openGate(waterLevel); // Buka berdasarkan jadwal
     } else {
         if (waterLevel <= MAX_DISTANCE && !gateOpen) {
@@ -131,16 +131,16 @@ void sendDataToServer(float waterLevel, String status) {
 void openGate(float level) {
     servo.write(180);
     gateOpen = true;
-    Serial.println("Pintu terbuka!");
-    sendDataToServer(level, "Terbuka oleh Sensor");
+    Serial.println("Pintu tertutup!");
+    sendDataToServer(level, "Tertutup oleh Sensor");
 }
 
 // Tutup pintu
 void closeGate(float level) {
     servo.write(0);
     gateOpen = false;
-    Serial.println("Pintu tertutup!");
-    sendDataToServer(level, "Tertutup oleh Sensor");
+    Serial.println("Pintu terbuka!");
+    sendDataToServer(level, "Terbuka oleh Sensor");
 }
 
 // Ambil status dari jadwal
